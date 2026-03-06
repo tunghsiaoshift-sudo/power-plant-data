@@ -1,12 +1,12 @@
 name: Update Taipower Data
 
-permissions:
-  contents: write
-
 on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update-data:
@@ -15,19 +15,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Download Taipower Data
         run: |
-          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json -o taipower_generation.json
-          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006020/001.json -o taipower_supply.json
+          curl -L "https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json" -o taipower_generation.json
+          curl -L "https://service.taipower.com.tw/data/opendata/apply/file/d006020/001.json" -o taipower_supply.json
 
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
-          git config user.email "action@github.com"
+          git config user.email "actions@github.com"
 
           git add taipower_generation.json taipower_supply.json
 
-          git commit -m "Auto update Taipower data" || echo "No changes"
+          git commit -m "Auto update Taipower data $(date)" || echo "No changes"
 
           git push
