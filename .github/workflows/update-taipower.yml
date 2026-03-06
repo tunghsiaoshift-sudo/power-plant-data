@@ -1,5 +1,8 @@
 name: Update Taipower Data
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: "*/10 * * * *"
@@ -8,25 +11,23 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Download Taipower Data
         run: |
-          curl -L "https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json" -o taipower_generation.json
-          curl -L "https://service.taipower.com.tw/data/opendata/apply/file/d006020/001.json" -o taipower_supply.json
+          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json -o taipower_generation.json
+          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006020/001.json -o taipower_supply.json
 
-      - name: Commit and Push update
+      - name: Commit update
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions"
+          git config user.email "action@github.com"
+
           git add taipower_generation.json taipower_supply.json
-          if git diff --staged --quiet; then
-            echo "No changes"
-          else
-            git commit -m "Auto update"
-            git push origin main
-          fi
+
+          git commit -m "Auto update Taipower data" || echo "No changes"
+
+          git push
