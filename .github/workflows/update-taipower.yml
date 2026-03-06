@@ -1,6 +1,9 @@
 name: Update Taipower Data
 
+permissions:
+  contents: write
 on:
+
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
