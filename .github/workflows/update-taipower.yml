@@ -1,0 +1,27 @@
+name: Update Taipower Data
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Taipower JSON
+        run: |
+          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json \
+          -o taipower_generation.json
+
+      - name: Commit update
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "action@github.com"
+          git add taipower_generation.json
+          git commit -m "Auto update Taipower data" || echo "No change"
+          git push
