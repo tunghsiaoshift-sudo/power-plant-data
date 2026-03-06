@@ -1,31 +1,13 @@
-name: Update Taipower Data
-
-permissions:
-  contents: write
-
-on:
-  schedule:
-    - cron: "*/10 * * * *"
-  workflow_dispatch:
-
-jobs:
-  update-data:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Download Taipower Data
+- name: Commit and Push update
         run: |
-          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json -o taipower_generation.json
-          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006020/001.json -o taipower_supply.json
-
-      - name: Commit update
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "action@github.com"
-
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
           git add taipower_generation.json taipower_supply.json
-          git commit -m "Auto update Taipower data" || echo "No changes"
-          git push
+          # 檢查是否有變動，避免空的 commit 導致報錯
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto update Taipower data ($(date +'%Y-%m-%d %H:%M'))"
+            git push origin main
+          fi
