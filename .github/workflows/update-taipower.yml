@@ -21,7 +21,7 @@ jobs:
           curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json -o taipower_generation.json
           curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006020/001.json -o taipower_supply.json
 
-      - name: Commit update
+      - name: Commit and Push
         run: |
           git config user.name "github-actions"
           git config user.email "action@github.com"
