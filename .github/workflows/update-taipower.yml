@@ -29,6 +29,7 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "action@github.com"
-          git add .
-          git commit -m "Auto update Taipower data" || echo "No changes"
+
+          git add taipower_generation.json taipower_supply.json
+          git commit -m "Auto update Taipower data"
           git push
