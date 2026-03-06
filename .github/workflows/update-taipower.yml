@@ -21,8 +21,14 @@ jobs:
 
       - name: Commit and Push update
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "action@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
           git add taipower_generation.json taipower_supply.json
-          git commit -m "Auto update Taipower data" || exit 0
-          git push
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto update Taipower data ($(date +'%Y-%m-%d %H:%M'))"
+            git push origin main
+          fi
