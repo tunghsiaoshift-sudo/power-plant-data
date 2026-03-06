@@ -13,23 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - name: Download Taipower Data
         run: |
-          curl -L "https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json" -o taipower_generation.json
-          curl -L "https://service.taipower.com.tw/data/opendata/apply/file/d006020/001.json" -o taipower_supply.json
+          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json -o taipower_generation.json
+          curl -L https://service.taipower.com.tw/data/opendata/apply/file/d006020/001.json -o taipower_supply.json
 
-      - name: Commit and Push
+      - name: Commit update
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config --global user.name "github-actions"
+          git config --global user.email "action@github.com"
 
           git add taipower_generation.json taipower_supply.json
-
           git commit -m "Auto update Taipower data $(date)" || echo "No changes"
 
+          git pull --rebase
           git push
