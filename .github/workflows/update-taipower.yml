@@ -16,6 +16,8 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Download Taipower Data
         run: |
@@ -25,10 +27,12 @@ jobs:
       - name: Commit update
         run: |
           git config --global user.name "github-actions"
-          git config --global user.email "action@github.com"
+          git config --global user.email "actions@github.com"
 
           git add taipower_generation.json taipower_supply.json
+
           git commit -m "Auto update Taipower data $(date)" || echo "No changes"
 
-          git pull --rebase
-          git push
+          git pull --rebase origin main
+
+          git push origin main
