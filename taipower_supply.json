@@ -1,1 +1,17 @@
-{"success": "true", "result": { "resource_id": "-" }, "records" : [ {"curr_load" : "2356.8" , "curr_util_rate" : "70"   },{ "fore_maxi_sply_capacity" : "3125.6" , "fore_peak_dema_load" : "2800.0" , "fore_peak_resv_capacity" : "325.6" , "fore_peak_resv_rate" : "11.63" , "fore_peak_resv_indicator" : "G" , "fore_peak_hour_range" : "18:00-20:00" , "publish_time" : "115.03.07(六)07:40"   },{ "yday_date" : "115.03.06" , "yday_maxi_sply_capacity" : "4009.3" , "yday_peak_dema_load" : "3093.9" , "yday_peak_resv_capacity" : "915.5" , "yday_peak_resv_rate" : "29.59" , "yday_peak_resv_indicator" : "G"  },{ "real_hr_maxi_sply_capacity" : "3348.6" , "real_hr_peak_time" : "2026.03.07 05:17" } ]}
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>台灣電力公司</title>
+  <link rel="stylesheet" type="text/css" href="https://service.taipower.com.tw/index.css">
+</head>
+<body>
+<h1><b>網站系統升級維護公告</b></h1><p>
+<h3>為提供您更良好的服務及用戶體驗，</h3><p>
+<h3>本網站正進行系統升級與維護，</h3><p>
+<h3>若有需求請打客服電話1911處理，</h3><p>
+<h3>感謝您的支持與造訪，我們將盡快完成作業，</h3><p>
+<h3>造成您的不便與困擾，敬請見諒</h3><p>
+<img src="https://service.taipower.com.tw/index.png" alt="網站系統升級維護公告">
+</body>
+</html>
