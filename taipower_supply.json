@@ -1,1 +1,17 @@
-{"success": "true", "result": { "resource_id": "-" }, "records" : [ {"curr_load" : "3302.2" , "curr_util_rate" : "75"   },{ "fore_maxi_sply_capacity" : "4309.5" , "fore_peak_dema_load" : "3580.0" , "fore_peak_resv_capacity" : "729.5" , "fore_peak_resv_rate" : "20.38" , "fore_peak_resv_indicator" : "G" , "fore_peak_hour_range" : "13:00-16:00" , "publish_time" : "115.08.15(六)09:50"   },{ "yday_date" : "115.08.14" , "yday_maxi_sply_capacity" : "4755.9" , "yday_peak_dema_load" : "4053.5" , "yday_peak_resv_capacity" : "702.4" , "yday_peak_resv_rate" : "17.33" , "yday_peak_resv_indicator" : "G"  },{ "real_hr_maxi_sply_capacity" : "4352.6" , "real_hr_peak_time" : "2026.08.15 02:42" } ]}
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>台灣電力公司</title>
+  <link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+<body>
+<h1><b>網站系統升級維護公告</b></h1><p>
+<h3>為提供您更良好的服務及用戶體驗，</h3><p>
+<h3>本網站正進行系統升級與維護，</h3><p>
+<h3>若有需求請打客服電話1911處理，</h3><p>
+<h3>感謝您的支持與造訪，我們將盡快完成作業，</h3><p>
+<h3>造成您的不便與困擾，敬請見諒</h3><p>
+<img src="/index.png" alt="網站系統升級維護公告">
+</body>
+</html>
